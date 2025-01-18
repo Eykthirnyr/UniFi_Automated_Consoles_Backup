@@ -16,7 +16,7 @@ The motivation behind this script is to automate backups for multiple UniFi site
 
 Ubiquiti currently does not provide an API to directly access or automate backups, which significantly complicates the development of such a tool. As a workaround, this script controls a Chrome browser to simulate user actions like logging in and navigating to the backup page. While functional, this approach has several drawbacks:
 - **Fragility:** Any changes to the UniFi HTML structure can break the automation and require updates to the script.
-- **Security Concerns:** Credentials are never stored, but cookies are saved locally for subsequent automated logins. This is still not an ideal security measure.
+- **Security Concerns:** Credentials are never stored, but cookies are saved locally for subsequent automated logins. This is still not an ideal security measure. By all means, you should restrict file access as much as possible to this.
 - **System-Specific Operations:** The initial login to extract cookies must be performed directly on the machine or virtual machine hosting the script. This limitation ensures cookies are correctly tied to the environment running the automation.
 
 ### Design Decisions
