@@ -191,8 +191,20 @@ The script will automatically check for and install missing dependencies upon ex
 
 ---
 
+### Screenshots
+
+
+
+![Dashboard](https://github.com/user-attachments/assets/6d1fc56c-f7a3-40cf-bb5c-dd0a8773c025)
+
+![Sites List](https://github.com/user-attachments/assets/81abbdf3-9d1a-4a81-9b7e-d288abe12fd0)
+
+![URL](https://github.com/user-attachments/assets/9b2c4448-198f-47e8-91ce-65bcf771812a)
+
+![Folders Hierarchy](https://github.com/user-attachments/assets/fc453bd1-f454-451b-b618-bb1d766ac867)
+
 
 ## Disclaimer
 This software is provided "as is" without any warranty. Use it at your own risk. The developer is not responsible for data loss, system damage, or any other issues resulting from its use.
 
-For more information, visit [Clément GHANEME's Website](https://clement.business/).
+For more information, visit [Clément GHANEME'](https://clement.business/).
