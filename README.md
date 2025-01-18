@@ -103,7 +103,7 @@ The script will automatically check for and install missing dependencies upon ex
 ---
 
 
-## Getting Started
+# Getting Started
 
 ### 1. **Deploying the App**
 1. Deploy the app on a VM within your company’s hypervisor (e.g., with IP `192.168.1.50`).
