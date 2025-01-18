@@ -48,7 +48,6 @@ While not perfect due to the reliance on browser automation, this tool provides 
    - Validates user input for console names and backup URLs.
    - Prevents overlapping or conflicting tasks to ensure reliability.
 
----
 
 ## Requirements
 
@@ -67,7 +66,6 @@ The following Python packages are required:
 
 The script will automatically check for and install missing dependencies upon execution.
 
----
 
 ## Safeguards and Error Handling
 
@@ -83,7 +81,6 @@ The script will automatically check for and install missing dependencies upon ex
 - Logs detailed error messages for troubleshooting.
 - Prompts for re-login if cookies expire.
 
----
 
 ## Security and Limitations
 
