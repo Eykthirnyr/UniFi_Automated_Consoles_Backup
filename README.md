@@ -69,6 +69,48 @@ The script will automatically check for and install missing dependencies upon ex
 
 ---
 
+## Getting Started
+
+### 1. **Setup**
+1. Clone or download the script onto a VM (e.g., `192.168.1.50`) in your company's hypervisor.
+2. Run the script using Python: `python Test.py`.
+3. The script will:
+   - Install required dependencies.
+   - Create the `unifi_app` folder with necessary files.
+
+### 2. **Accessing the Web GUI**
+1. Open a web browser on your device (e.g., laptop).
+2. Navigate to the VM's IP: `http://192.168.1.50:5000`.
+
+### 3. **First Login**
+1. Click the "Login" button in the GUI.
+2. Complete the UniFi login process (email, password, MFA) in the Chrome window on the VM.
+3. Upon successful login, session cookies are saved, and the Chrome window will close.
+
+### 4. **Adding Consoles**
+1. In the GUI, go to the "Add Console" section.
+2. Enter:
+   - **Console Name**: A friendly name for the console.
+   - **Backup URL**: The URL of the console's backup page.
+3. Click "Add Console".
+
+### 5. **Scheduling Backups**
+- Set intervals for backups and connection checks in the GUI.
+
+### 6. **Retrieving Backups**
+- Backups are stored in `unifi_app/backups` on the VM.
+- Organized by date and prefixed with the console name.
+
+---
+
+## Security Tips
+1. **Firewall Rules**: Restrict GUI access to trusted IPs.
+2. **Isolate the VM**: Place it in a secure VLAN or subnet.
+3. **HTTPS Access**: Use a reverse proxy (e.g., NGINX) to enable HTTPS.
+4. **Cookie Security**: Limit access to the `cookies.json` file.
+
+---
+
 ## Using the Application
 
 ### Adding a Console
