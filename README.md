@@ -69,69 +69,96 @@ The script will automatically check for and install missing dependencies upon ex
 
 ---
 
+
 ## Getting Started
 
-### 1. **Setup**
-1. Clone or download the script onto a VM (e.g., `192.168.1.50`) in your company's hypervisor.
-2. Run the script using Python: `python UniFi_Automated_Consoles_Backup.py`.
-3. The script will:
-   - Install required dependencies.
-   - Create the `unifi_app` folder with necessary files.
+### 1. **Deploying the App**
+1. Deploy the app on a VM within your company’s hypervisor (e.g., with IP `192.168.1.50`).
+2. Ensure the VM has Python and Google Chrome installed.
 
-### 2. **Accessing the Web GUI**
-1. Open a web browser on your device (e.g., laptop).
-2. Navigate to the VM's IP: `http://192.168.1.50:5000`.
-
-### 3. **First Login**
-1. Click the "Login" button in the GUI.
-2. Complete the UniFi login process (email, password, MFA) in the Chrome window on the VM.
-3. Upon successful login, session cookies are saved, and the Chrome window will close.
-
-### 4. **Adding Consoles**
-1. In the GUI, go to the "Add Console" section.
-2. Enter:
-   - **Console Name**: A friendly name for the console.
-   - **Backup URL**: The URL of the console's backup page.
-3. Click "Add Console".
-
-### 5. **Scheduling Backups**
-- Set intervals for backups and connection checks in the GUI.
-
-### 6. **Retrieving Backups**
-- Backups are stored in `unifi_app/backups` on the VM.
-- Organized by date and prefixed with the console name.
+### 2. **Running the Script**
+1. Run the script:  
+   ```bash
+   python UniFi_Automated_Consoles_Backup.py
+   ```
+2. The script will automatically:
+   - Install all required dependencies.
+   - Create the `unifi_app` folder structure, including:
+     - `backups/`: Stores organized backups.
+     - `cookies.json`: Stores session data.
+     - `logs/`: Logs of all app activities.
 
 ---
 
-## Security Tips
-1. **Firewall Rules**: Restrict GUI access to trusted IPs.
-2. **Isolate the VM**: Place it in a secure VLAN or subnet.
-3. **HTTPS Access**: Use a reverse proxy (e.g., NGINX) to enable HTTPS.
-4. **Cookie Security**: Limit access to the `cookies.json` file.
+### 3. **Accessing the Web GUI**
+1. On any device in your network (e.g., your laptop), open a web browser.
+2. Navigate to the VM’s IP address on **port 5000**:  
+   ```  
+   http://192.168.1.50:5000  
+   ```
+3. This web GUI serves as the primary interface for managing the application.
 
 ---
 
-## Using the Application
+### 4. **First-Time Login**
+1. In the web GUI, click the **"Login"** button.
+2. A Chrome browser window will open on the VM.
+3. Complete the UniFi login process in the Chrome window:
+   - Enter your **email** and **password**.
+   - Complete **MFA** if prompted.
+   - Trust the device if required.
+4. Once logged in:
+   - Cookies are saved to maintain the session.
+   - The browser window will close automatically.
+5. The GUI will now display a **connected status**.
 
-### Adding a Console
-1. Navigate to the **Add Console** section in the web GUI.
-2. Provide:
-   - **Console Name**: A unique identifier for the console (e.g., `MainOfficeConsole`).
-   - **Backup URL**: The direct URL to the console's backup page (e.g., `https://unifi.ui.com/consoles/<ID>/network/default/settings/system/backups`).
-3. Click **Add Console** to save.
+---
 
-### Scheduling Backups
-1. In the **Schedules** section:
-   - Set the **Backup Interval (hours)** to define how often backups are retrieved.
-   - Set the **Connectivity Check Interval (hours)** to determine how frequently the connection status is verified.
-2. Click **Update Schedule** to save changes.
+### 5. **Adding Consoles**
+1. Navigate to the **Add Console** section in the GUI.
+2. Provide the following:
+   - **Console Name**: A friendly identifier for the console (e.g., `MainOfficeConsole`).
+   - **Backup URL**: The direct URL to the console’s backup page  
+     (e.g., `https://unifi.ui.com/consoles/<ID>/network/default/settings/system/backups`).
+3. Click **Add Console** to save the details.
 
-### Managing Backups
-- **Initiate a Backup**: Click **Backup Now** for a console in the list.
-- **View Logs**: Scroll through the **Logs** section to monitor activity.
-- **Retrieve Backups**:
-  - Backups are stored in `unifi_app/backups/YYYY-MM-DD/`.
-  - Each file is prefixed with the console name.
+---
+
+### 6. **Configuring Schedules**
+1. Go to the **Schedules** section in the GUI.
+2. Set the intervals in hours:
+   - **Backup Interval**: How often backups are taken.
+   - **Connection Check Interval**: How often the app checks if the console is still connected.
+3. Save your changes by clicking **Update Schedule**.
+
+---
+
+### 7. **Managing Backups**
+1. **Start a Backup**:
+   - Click **Backup Now** for a specific console in the list.
+2. **View Logs**:
+   - Monitor logs in the **Logs** section to check activity and troubleshoot.
+3. **Access Backups**:
+   - Backups are stored in `unifi_app/backups/YYYY-MM-DD/` on the VM.
+   - Each backup file is prefixed with the console name for easy identification.
+
+---
+
+### 8. **Re-Login (If Needed)**
+1. If the connection fails twice (e.g., expired cookies), the GUI will notify you to re-login.
+2. To re-login:
+   - Click the **Login** button in the GUI.
+   - Complete the login process again in the Chrome window.
+   - Upon success, new cookies will be saved, and the session will resume.
+
+---
+
+### 9. **Security Tips**
+1. Restrict GUI access to trusted IPs using your firewall.
+2. Ensure that **port 5000** is open for devices needing access to the GUI.
+3. Isolate the VM in a secure VLAN or subnet.
+4. Use a reverse proxy (e.g., NGINX) to enable HTTPS for the GUI.
+5. Ensure `cookies.json` is stored securely, as it contains sensitive session data.
 
 ---
 
@@ -164,41 +191,6 @@ The script will automatically check for and install missing dependencies upon ex
 
 3. **Browser Control**:
    - Google Chrome is controlled via Selenium for automation tasks. Ensure Chrome is installed and accessible.
-
-### Recommendations
-- **Secure Network Configuration**:
-  - Restrict access to sensitive network locations.
-  - Use firewalls to control outbound/inbound traffic.
-
-- **Local Machine Security**:
-  - Keep the host system updated.
-  - Run the application in a secure environment.
-
-- **Error Handling**:
-  - Regularly monitor logs for issues.
-  - Test connectivity after changes to the UniFi environment.
-
----
-
-## How It Works
-
-### Self-Contained Design
-- The application is entirely contained in a single Python script.
-- Dependencies are installed automatically upon execution.
-- No additional setup or external services are required.
-
-### Backup Workflow
-1. **Login**:
-   - Manual login occurs in a controlled Chrome instance.
-   - Cookies are saved for session persistence.
-
-2. **Backup Retrieval**:
-   - Selenium navigates to the backup URL.
-   - Files are downloaded and renamed with a `<ConsoleName>_` prefix.
-   - Backups are stored in a date-based folder hierarchy.
-
-3. **Scheduled Jobs**:
-   - Flask-APScheduler runs periodic tasks for backups and connectivity checks.
 
 ---
 
