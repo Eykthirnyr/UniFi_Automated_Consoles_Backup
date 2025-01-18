@@ -207,4 +207,4 @@ The script will automatically check for and install missing dependencies upon ex
 ## Disclaimer
 This software is provided "as is" without any warranty. Use it at your own risk. I'm not responsible for data loss, system damage, or any other issues resulting from its use.
 
-For more, visit my website : [Clément GHANEME](https://clement.business/).
+Made by [Clément GHANEME](https://clement.business/) 01/2025.
