@@ -69,6 +69,40 @@ The script will automatically check for and install missing dependencies upon ex
 
 ---
 
+## Safeguards and Error Handling
+
+### Input Validation
+- **Console Name**: Ensures uniqueness and non-empty input.
+- **Backup URL**: Checks for valid URLs.
+
+### Task Management
+- Prevents overlapping tasks by disallowing concurrent executions.
+- Skips tasks if invalid or expired cookies are detected.
+
+### Recovery from Errors
+- Logs detailed error messages for troubleshooting.
+- Prompts for re-login if cookies expire.
+
+---
+
+## Security and Limitations
+
+### Known Limitations
+1. **Session Cookies**:
+   - Authentication relies on cookies saved during manual login.
+   - Expired cookies require user intervention to re-login.
+
+2. **Network and Firewall**:
+   - Ensure the local machine can access UniFi consoles.
+   - Configure firewalls to allow outbound connections to UniFi's web services.
+
+3. **Browser Control**:
+   - Google Chrome is controlled via Selenium for automation tasks. Ensure Chrome is installed and accessible.
+
+---
+---
+---
+
 
 ## Getting Started
 
@@ -161,38 +195,9 @@ The script will automatically check for and install missing dependencies upon ex
 5. Ensure `cookies.json` is stored securely, as it contains sensitive session data.
 
 ---
-
-## Safeguards and Error Handling
-
-### Input Validation
-- **Console Name**: Ensures uniqueness and non-empty input.
-- **Backup URL**: Checks for valid URLs.
-
-### Task Management
-- Prevents overlapping tasks by disallowing concurrent executions.
-- Skips tasks if invalid or expired cookies are detected.
-
-### Recovery from Errors
-- Logs detailed error messages for troubleshooting.
-- Prompts for re-login if cookies expire.
-
+---
 ---
 
-## Security and Limitations
-
-### Known Limitations
-1. **Session Cookies**:
-   - Authentication relies on cookies saved during manual login.
-   - Expired cookies require user intervention to re-login.
-
-2. **Network and Firewall**:
-   - Ensure the local machine can access UniFi consoles.
-   - Configure firewalls to allow outbound connections to UniFi's web services.
-
-3. **Browser Control**:
-   - Google Chrome is controlled via Selenium for automation tasks. Ensure Chrome is installed and accessible.
-
----
 
 ## Disclaimer
 This software is provided "as is" without any warranty. Use it at your own risk. The developer is not responsible for data loss, system damage, or any other issues resulting from its use.
