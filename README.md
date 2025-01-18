@@ -99,8 +99,7 @@ The script will automatically check for and install missing dependencies upon ex
 3. **Browser Control**:
    - Google Chrome is controlled via Selenium for automation tasks. Ensure Chrome is installed and accessible.
 
----
----
+
 ---
 
 
@@ -194,8 +193,7 @@ The script will automatically check for and install missing dependencies upon ex
 4. Use a reverse proxy (e.g., NGINX) to enable HTTPS for the GUI.
 5. Ensure `cookies.json` is stored securely, as it contains sensitive session data.
 
----
----
+
 ---
 
 
