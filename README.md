@@ -73,7 +73,7 @@ The script will automatically check for and install missing dependencies upon ex
 
 ### 1. **Setup**
 1. Clone or download the script onto a VM (e.g., `192.168.1.50`) in your company's hypervisor.
-2. Run the script using Python: `python Test.py`.
+2. Run the script using Python: `python UniFi_Automated_Consoles_Backup.py`.
 3. The script will:
    - Install required dependencies.
    - Create the `unifi_app` folder with necessary files.
