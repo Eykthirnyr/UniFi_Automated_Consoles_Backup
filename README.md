@@ -100,8 +100,6 @@ The script will automatically check for and install missing dependencies upon ex
    - Google Chrome is controlled via Selenium for automation tasks. Ensure Chrome is installed and accessible.
 
 
----
-
 
 # Getting Started
 
