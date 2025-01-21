@@ -203,6 +203,23 @@ The script will automatically check for and install missing dependencies upon ex
 
 ![Folders Hierarchy](https://github.com/user-attachments/assets/fc453bd1-f454-451b-b618-bb1d766ac867)
 
+# Changelog
+
+## 21/05/2025
+
+### Added
+- Ability to enable or disable "Check Interval (hrs)" in the schedule settings.
+- Support for setting "Backup Interval" and "Check Interval" in minutes, hours, or days (minimum 15 minutes enforced).
+- A "Download Latest Backup" button for each console to download the most recent backup directly from the web interface.
+- A "Download All Today's Backups (ZIP)" button to download all backups from the current day as a single ZIP file.
+- A "View History" button for each console, displaying a timeline of backups made for that console (last 30 days) with the ability to download individual backups from the timeline.
+
+### Fixed
+- Resolved `TypeError: send_file() got an unexpected keyword argument 'attachment_filename'` in the "Download All Today's Backups (ZIP)" functionality by replacing `attachment_filename` with `download_name`.
+
+### Updated
+- Connectivity checks now verify access to `https://unifi.ui.com/` with the current cookies and update the login status if access is denied.
+
 
 ## Disclaimer
 This software is provided "as is" without any warranty. Use it at your own risk. I'm not responsible for data loss, system damage, or any other issues resulting from its use.
