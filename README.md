@@ -195,7 +195,9 @@ The script will automatically check for and install missing dependencies upon ex
 
 
 
-![Dashboard](https://github.com/user-attachments/assets/6d1fc56c-f7a3-40cf-bb5c-dd0a8773c025)
+![GUI_APP](https://github.com/user-attachments/assets/8a868f74-2e49-4a3b-a590-71e78dd5f47b)
+
+![History](https://github.com/user-attachments/assets/39c2d1f9-66e1-4204-b162-eb6343983899)
 
 ![Sites List](https://github.com/user-attachments/assets/81abbdf3-9d1a-4a81-9b7e-d288abe12fd0)
 
