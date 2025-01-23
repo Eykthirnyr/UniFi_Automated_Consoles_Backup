@@ -207,7 +207,7 @@ The script will automatically check for and install missing dependencies upon ex
 
 # Changelog
 
-## 21/05/2025
+## 21/01/2025
 
 ### Added
 - Ability to enable or disable "Check Interval (hrs)" in the schedule settings.
