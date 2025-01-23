@@ -222,6 +222,28 @@ The script will automatically check for and install missing dependencies upon ex
 ### Updated
 - Connectivity checks now verify access to `https://unifi.ui.com/` with the current cookies and update the login status if access is denied.
 
+---
+
+## 23/01/2025
+
+### Added
+- Display time remaining before the next scheduled backup task on the web GUI dashboard.
+  - Added a new helper function `format_timedelta(td)` to compute and format time deltas.
+  - Updated the `dashboard()` route to calculate `time_remaining_backup` by retrieving the `BackupJob` from APScheduler and comparing its `next_run_time` to the current time.
+  - Modified the HTML template to include a "Next Backup Task" section, displaying the time remaining.
+- Ensured proper validation of backup intervals:
+  - Backup interval for minutes is now enforced to be a minimum of 15 minutes, with a warning message shown to users on the web interface when adjusted.
+
+### Changed
+- Improved the `init_schedule_jobs()` function to handle scheduling logic for backup jobs and connectivity checks more robustly, including proper support for intervals in minutes, hours, and days.
+- Enhanced the user interface to auto-refresh when tasks are running, improving the live update experience for ongoing jobs.
+
+### Fixed
+- Corrected validation for scheduled task intervals, ensuring backup and connectivity check schedules respect minimum thresholds and are properly saved to `appdata.json`.
+- Updated logging to capture and display the results of scheduled tasks more clearly.
+
+---
+
 
 ## Disclaimer
 This software is provided "as is" without any warranty. Use it at your own risk. I'm not responsible for data loss, system damage, or any other issues resulting from its use.
