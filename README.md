@@ -245,10 +245,6 @@ The script will automatically check for and install missing dependencies upon ex
 
 ## 30/01/2025
 
-# Changelog - 2025-01-30
-
-## Enhancements & Fixes
-
 ### Backup System
 - Implemented real file download logic:
   - Backups are now properly retrieved and stored.
