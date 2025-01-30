@@ -243,6 +243,67 @@ The script will automatically check for and install missing dependencies upon ex
 
 ---
 
+## 30/01/2025
+
+# Changelog - 2025-01-30
+
+## Enhancements & Fixes
+
+### Backup System
+- Implemented real file download logic:
+  - Backups are now properly retrieved and stored.
+  - Files are saved in `BACKUP_ROOT/<YYYY-MM-DD>` (UTC-based).
+  - Filenames now follow `{consoleName}_{originalDownloadedFileName}`.
+  - Logs now display the actual filename instead of `<filename>`.
+- Implemented backup history tracking:
+  - Users can now browse and download past backups from the last 30 days.
+  - The history correctly reflects downloaded files.
+  - `/console_history/<cid>` now retrieves real backup files.
+
+### GUI Improvements
+- Timezone Selection:
+  - Users can now select their timezone (default: UTC).
+  - Logs and "Last Backup Time" now use the user-selected timezone.
+  - Option to allow automatic timezone detection via browser geolocation.
+- Live UI Updates:
+  - Current task, logs, and backup status are updated in real time.
+  - The page no longer needs to refresh manually.
+- Better Action Column:
+  - The "Actions" column is now wide enough to display all four buttons side by side.
+  - The "Last Backup Status" column has been made less wide.
+- Flash Messages Auto-Dismiss:
+  - Notifications now disappear after 2 minutes, unless a task is running.
+
+### Task Queue & Scheduling
+- Single-Task Execution:
+  - At any time, only one backup task can run.
+  - The backup queue strictly enforces sequential execution.
+- Retry Mechanism Improvements:
+  - If a backup fails, it is retried twice at the end of the schedule.
+  - 30-second delay between retries.
+  - If it still fails after 3 attempts, it is logged as failed.
+  - If it succeeds on retry, it is logged as success after retry.
+- Schedule Conflict Handling:
+  - If a scheduled backup is still running when the next one is due, the new one is skipped and logged as a conflict.
+  - The running schedule finishes as usual.
+- Manual Override:
+  - A "Start Schedule Now" button was added to allow manual execution of a scheduled backup immediately, overriding the timer.
+
+### Bug Fixes
+- Stuck Retries Issue:
+  - Fixed issue where the script stayed stuck on a retry.
+- Task Display Sync Issue:
+  - Fixed issue where the GUI incorrectly showed no task running when a task was active.
+- Stale Chrome Tabs Issue:
+  - Added automatic cleanup for leftover Chrome tabs if no tasks are running.
+- Timestamp Inconsistencies:
+  - Server logs no longer rely on system time.
+  - Implemented UTC-based logging with user-configurable timezone display.
+- Deprecation Warnings Fixed:
+  - Replaced deprecated `datetime.utcnow()` with `datetime.now(datetime.UTC)`.
+  - Replaced `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(timestamp, datetime.UTC)`.
+
+---
 
 ## Disclaimer
 This software is provided "as is" without any warranty. Use it at your own risk. I'm not responsible for data loss, system damage, or any other issues resulting from its use.
