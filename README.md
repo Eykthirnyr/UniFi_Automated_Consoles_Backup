@@ -245,28 +245,13 @@ The script will automatically check for and install missing dependencies upon ex
 
 ## 30/01/2025
 
-### Backup System
-- Implemented real file download logic:
-  - Backups are now properly retrieved and stored.
-  - Files are saved in `BACKUP_ROOT/<YYYY-MM-DD>` (UTC-based).
-  - Filenames now follow `{consoleName}_{originalDownloadedFileName}`.
-  - Logs now display the actual filename instead of `<filename>`.
-- Implemented backup history tracking:
-  - Users can now browse and download past backups from the last 30 days.
-  - The history correctly reflects downloaded files.
-  - `/console_history/<cid>` now retrieves real backup files.
-
 ### GUI Improvements
 - Timezone Selection:
   - Users can now select their timezone (default: UTC).
   - Logs and "Last Backup Time" now use the user-selected timezone.
-  - Option to allow automatic timezone detection via browser geolocation.
 - Live UI Updates:
   - Current task, logs, and backup status are updated in real time.
   - The page no longer needs to refresh manually.
-- Better Action Column:
-  - The "Actions" column is now wide enough to display all four buttons side by side.
-  - The "Last Backup Status" column has been made less wide.
 - Flash Messages Auto-Dismiss:
   - Notifications now disappear after 2 minutes, unless a task is running.
 
