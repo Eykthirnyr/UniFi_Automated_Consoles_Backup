@@ -283,6 +283,17 @@ The script will automatically check for and install missing dependencies upon ex
 - Deprecation Warnings Fixed:
   - Replaced deprecated `datetime.utcnow()` with `datetime.now(datetime.UTC)`.
   - Replaced `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(timestamp, datetime.UTC)`.
+ 
+---
+
+## 19/06/2025
+
+### Compatibility & Stability Notice
+
+- Confirmed Stability: The tool continues to work reliably despite recent structural changes in the console logic.
+- Regression Tested: Core backup features, queue handling, and log display were tested against the new console architecture.
+- 
+![Screenshot June](https://github.com/user-attachments/assets/5854da9a-779d-4a7a-b46f-4c093d17fbce)
 
 ---
 
